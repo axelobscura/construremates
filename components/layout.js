@@ -4,6 +4,10 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Form from 'react-bootstrap/Form';
+import {FormControl} from 'react-bootstrap';
+import DropdownButton from 'react-bootstrap/DropdownButton';
+import Dropdown from 'react-bootstrap/Dropdown';
+import InputGroup from 'react-bootstrap/InputGroup'
 import Button from 'react-bootstrap/Button';
 import Link from 'next/link';
 
@@ -15,34 +19,38 @@ export default function Layout({ children, home }) {
     <div>
       <Head>
         <link rel="icon" href="/favicon.ico" />
-        <meta
-          name="description"
-          content="Learn how to build a personal website using Next.js"
-        />
+        <meta name="description" content="Learn how to build a personal website using Next.js" />
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
+        <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css" />
       </Head>
       <header className="header">
         <Container>
             <Navbar bg="black" expand="lg">
-                <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="mr-auto">
-                    <Nav.Link href="#home">Home</Nav.Link>
-                    <Nav.Link href="#link">Link</Nav.Link>
-                    <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                        <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                        <NavDropdown.Divider />
-                        <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-                    </NavDropdown>
-                    </Nav>
-                    <Form inline>
-                    <Button variant="outline-success">Search</Button>
-                    </Form>
-                </Navbar.Collapse>
+                <Navbar.Brand href="#home">
+                    <img src="logo.png" alt="" title="" style={{ maxWidth: '190px', marginLeft: '-15px' }} />
+                </Navbar.Brand>
+                <Form.Group style={{width: '100%', marginTop: '20px'}}>
+                    <InputGroup className="mb-3" style={{ marginTop: '10px' }}>
+                        <DropdownButton
+                        as={InputGroup.Prepend}
+                        variant="outline-secondary"
+                        title="Categoría"
+                        id="input-group-dropdown-1"
+                        >
+                        <Dropdown.Item href="#">Action</Dropdown.Item>
+                        <Dropdown.Item href="#">Another action</Dropdown.Item>
+                        <Dropdown.Item href="#">Something else here</Dropdown.Item>
+                        <Dropdown.Divider />
+                        <Dropdown.Item href="#">Separated link</Dropdown.Item>
+                        </DropdownButton>
+                        <FormControl aria-describedby="basic-addon1" style={{borderRadius: '0 50px 50px 0', marginRight: '20px'}} />
+                    </InputGroup>
+                </Form.Group>
+                <div className="micuentaHeader">
+                    <p>Mis compras</p>
+                    <p>(2) = $50,000.00</p>
+                </div>
             </Navbar>
         </Container>
       </header>
@@ -65,6 +73,14 @@ export default function Layout({ children, home }) {
         .header {
             background: #000000;
             padding: 20px;
+        }
+        .micuentaHeader {
+            
+        }
+        .micuentaHeader p {
+            color: #ffffff;
+            font-size: 0.7rem;
+            font-weight: bold;
         }
         .footer {
             background: #000000;
